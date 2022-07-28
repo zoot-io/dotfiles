@@ -1,0 +1,9 @@
+tmux has-session -t Painful
+if [[ $? != 0 ]]
+then
+  tmux detach
+  tmux new-session -s Painful -n Editor -d
+  tmux split-window -h -p 40 -t Painful
+  tmux send-keys -t Painful:1.1 'emacs' C-m
+fi
+tmux attach -t Painful

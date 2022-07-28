@@ -1,0 +1,20 @@
+tmux has-session -t WhlHouse
+if [[ $? != 0 ]]
+then
+  cd
+  tmux detach
+  tmux new-session -s WhlHouse -n Home -d
+  tmux send-keys -t WhlHouse:1 'ranger' C-m
+  #tmux split-window -v -p 70 -t WhlHouse
+  tmux new-window -n back-end -t WhlHouse
+  tmux send-keys -t WhlHouse:2.1 'cd ./repository/back/ && conda activate vantedge && python manage.py runserver' C-m
+  tmux split-window -v -p 80 -t WhlHouse:2
+  tmux send-keys -t WhlHouse:2.2 'cd ./repository/back/ && git status' C-m
+  tmux new-window -n front-end -t WhlHouse
+  tmux send-keys -t WhlHouse:3.1 'cd ./repository/ui/ && rm -r node_modules && yarn install && quasar dev -p 8081' C-m
+  tmux split-window -v -p 80 -t WhlHouse:3
+  tmux send-keys -t WhlHouse:3.2 'cd ./repository/ui/ && git status' C-m
+  #tmux new-window -n editor -t WhlHouse
+  #tmux send-keys -t WhlHouse:4 'cd ./notes/' C-m
+fi
+tmux attach -t WhlHouse
