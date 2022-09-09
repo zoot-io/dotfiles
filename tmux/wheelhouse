@@ -3,8 +3,8 @@ if [[ $? != 0 ]]
 then
   cd
   tmux detach
-  tmux new-session -s WhlHouse -n Home -d
-  tmux send-keys -t WhlHouse:1 'ranger' C-m
+  tmux new-session -s WhlHouse -n Sandbox -d
+  #tmux send-keys -t WhlHouse:1 'ranger' C-m
   #tmux split-window -v -p 70 -t WhlHouse
   tmux new-window -n back-end -t WhlHouse
   tmux send-keys -t WhlHouse:2.1 'cd ./repository/back/ && conda activate vantedge && python manage.py runserver' C-m
