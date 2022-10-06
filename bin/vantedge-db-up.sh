@@ -1,3 +1,3 @@
 #!/bin/bash
 location=$(pwd)
-cd ~/repository/back/buildscripts/docker/local && docker-compose up -d vantedge_db && cd $location
+cd ~/Repository/back-end/buildscripts/docker/local && docker compose up -d vantedge_db && cd $location
