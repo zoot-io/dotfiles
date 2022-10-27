@@ -4,13 +4,13 @@ then
   cd ~/painless
   tmux detach
   tmux new-session -s Painless -n Editor -d
-  tmux split-window -h -p 40 -t Painless
-  tmux send-keys -t Painless:1.1 'vim' C-m
-  tmux new-window -n Servers -t Painless
+  # tmux split-window -h -p 40 -t Painless
+  tmux send-keys -t Painless:1.1 'emacs' C-m
+  tmux new-window -n Scratch -t Painless
   tmux split-windoww -v -t Painless:2
   tmux send-keys -t Painless:2.1 'ranger' C-m
-  tmux send-keys -t Painless:2.2 'ml start' C-m
-  tmux new-window -n Scratch -t Painless
-  tmux send-keys -t Painless:3.1 'git status' C-m
+  # tmux send-keys -t Painless:2.2 'ml start' C-m
+  # tmux new-window -n Scratch -t Painless
+  # tmux send-keys -t Painless:3.1 'git status' C-m
 fi
 tmux attach -t Painless
