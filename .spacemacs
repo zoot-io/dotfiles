@@ -607,7 +607,7 @@ before packages are loaded."
   (setq-default
    ;; evil
    evil-escape-delay 0.2
-   evil-escape-key-sequence "jj")
+   evil-escape-key-sequence "jk")
 )
 
 
